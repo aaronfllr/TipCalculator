@@ -1,0 +1,27 @@
+type: code
+files:
+  - name: src/main/Main.kt
+    visible: true
+    highlight_level: NONE
+    text: |-
+      class MainActivity : AppCompatActivity() {
+          // Do not change the line below!
+          lateinit var searchBtn: Button
+      
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              setContentView(R.layout.activity_main)
+      
+              searchBtn = findViewById(R.id.search_btn)
+              // Write your code here
+      
+          }
+      }
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/25676#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 28 Oct 2023 19:41:57 UTC"
+record: -1
+submission_language: kotlin

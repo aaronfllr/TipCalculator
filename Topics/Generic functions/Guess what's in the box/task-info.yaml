@@ -1,0 +1,18 @@
+type: code
+files:
+  - name: src/main/Main.kt
+    visible: true
+    highlight_level: NONE
+    text: |-
+      class Box<T>(val item: T) {}
+      
+      // define the function
+      fun <T> Box<T>.guessBox(){}
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16058#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sun, 29 Oct 2023 07:46:04 UTC"
+record: -1
+submission_language: kotlin

@@ -1,0 +1,16 @@
+type: code
+files:
+  - name: src/main/Main.kt
+    visible: true
+    highlight_level: NONE
+    text: |-
+      // implement your function here
+      fun createFullName...
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/12674#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Fri, 20 Oct 2023 02:30:05 UTC"
+record: -1
+submission_language: kotlin

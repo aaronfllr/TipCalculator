@@ -1,0 +1,46 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>
+    Now that your application has the appropriate UI components, 
+    it needs to be able to tell when the user input changes: this way,
+    it will know when to do the calculation and show the tip amount.
+    For now, we will use the <code class="java">EditText</code> field to show the user input values.
+</p>
+<h5 id="objectives">Objectives</h5>
+<ul>
+<li>
+        Add an event listener to <code class="java">edit_text</code>.
+        <ul>
+<li>
+                If the value is greater than zero
+                display the value on <code class="java">bill_value_tv</code>
+                with the following format:
+                <code class="java">Bill Value: $[amount]</code>, where [amount] is a placeholder
+                for a number always displayed with two decimal places;
+            </li>
+<li>
+                Also if the value is greater than zero
+                display the current tip percent on <code class="java">tip_percent_tv</code>
+                with the following format:
+                <code class="java">Tip: [tipPercent]%</code>, where [tipPercent] is a placeholder
+                for an integer number.
+                The tip percent value should be equal to the <code class="java">progress</code>
+                attribute on <code class="java">seek_bar</code>
+</li>
+</ul>
+</li>
+<li>
+        Add an event listener to <code class="java">seek_bar</code>
+<ul>
+<li>
+                When the value of <code class="java">progress</code> attribute changes
+                update the value displayed at <code class="java">tip_percent_tv</code>
+                using the same format described above;
+            </li>
+</ul>
+</li>
+</ul>
+<h5 id="example">Example</h5>
+<p>In the gif below, you can see what your application should look like at this stage:</p>
+<p><img alt="Tip Calculator events" height="600" name="Stage2Example.gif" src="https://ucarecdn.com/eaf4b14b-23d1-4767-9af5-9134c4420981/" width="340"/></p>
+</div>

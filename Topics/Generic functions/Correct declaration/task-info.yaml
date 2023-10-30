@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: fun &lt;T&gt; doGeneric(t:T):String
+  - text: fun doGeneric(t:T):String
+  - text: fun &lt;String&gt; doGeneric(t:T)
+  - text: "fun T doGeneric (t:T): String"
+  - text: fun doGeneric(t:&lt;T&gt;):String
+files:
+  - name: src/main/Main.kt
+    visible: true
+    text: |+
+      // You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16055#comment
+status: Solved
+record: -1
+local_check: false

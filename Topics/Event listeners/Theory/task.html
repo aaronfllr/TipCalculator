@@ -1,0 +1,108 @@
+<h2>Event listeners</h2>
+<div class="step-text">
+<p>An <strong>event listener</strong> is an object that contains a callback method. This method is called by Android when its trigger is fired by the user interacting with the associated UI item. Simply put, listeners are handlers that "listen" for events in the user interface like clicks or keypresses and respond to them by calling the code written in the body of the method. In this topic, you will learn about several different types of event listeners, each designed to react to a particular event.</p>
+<h5 id="click-and-longclick-listeners">Click and LongClick listeners</h5>
+<p>The first, and probably most important listener, is the <code class="language-kotlin">OnClickListener</code>. It's called when the user clicks on an interface element or selects it by using the trackball and pressing the <em>Enter</em> button. The below code will close an application when the relevant button is pressed:</p>
+<pre><code class="language-kotlin">    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        findViewById&lt;Button&gt;(R.id.exit).setOnClickListener {
+            finishActivity()
+        }</code></pre>
+<p>Next is the <code class="language-kotlin">OnLongClickListener</code>, which is called when the user holds their finger on the element or presses the <em>Enter</em> button. When writing code, you need to consider one important nuance — this listener requires either true or false to be returned. Return true if you only want <code class="language-kotlin">OnLongClick</code> to react to this event. If you return false, then both <code class="language-kotlin">OnClick</code> and <code class="language-kotlin">OnLongClick</code> will be triggered by the event. Here is some example code that will display simple text on the screen when a button is long-pressed:</p>
+<p> </p>
+<pre><code class="language-kotlin">    findViewById&lt;Button&gt;(R.id.toaster).setOnLongClickListener {
+        Toast.makeText(this, "Long click detected", Toast.LENGTH_SHORT).show()
+        true
+    }    
+</code></pre>
+<h5 id="keyboard-input">Keyboard input</h5>
+<p>Let's start with <code class="language-kotlin">TextWatcher</code>: this interface is intended to observe the contents of an <code class="language-kotlin">EditText</code> component.</p>
+<p>It has three callback methods:</p>
+<ul>
+<li><code class="language-kotlin">beforeTextChanged</code> is called first and provides details about the text that's about to change.</li>
+<li><code class="language-kotlin">onTextChanged</code> is called once the change has happened. It gives information about what has been altered.</li>
+<li><code class="language-kotlin">afterTextChanged</code> is called last and provides you with the option to change the text.</li>
+</ul>
+<p>The below example shows a Toast message with "before" and "after" text every time input, deletion, cut, or paste operations occur:</p>
+<pre><code class="language-kotlin">findViewById&lt;EditText&gt;(R.id.input).addTextChangedListener(object : TextWatcher {
+    var old = ""
+    override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+        old = s.toString()
+    }
+    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+    }
+    override fun afterTextChanged(s: Editable) {
+        val new = s.toString()
+        Toast.makeText(this@MainActivity, "$old -&gt; $new", Toast.LENGTH_SHORT).show()
+    }
+})</code></pre>
+<p>You can implement a single <code class="language-kotlin">TextWatcher</code> method as well. This is done by passing a lambda to AndroidX extension functions:</p>
+<pre><code class="language-kotlin">findViewById&lt;EditText&gt;(R.id.input).doAfterTextChanged { text -&gt;
+
+}</code></pre>
+<p>There's also <code class="language-kotlin">OnKeyListener</code> which is called if the relevant interface element is currently in focus and a phone keyboard button such as <em>Home</em> is pressed. When using it, you again need to return true or false and check which kind of event occurred (the button was pressed, the button was released, and so on).</p>
+<p>In the example below, when the <em>Back</em> button is pressed while in the text input field, the user is prompted to press the key twice:</p>
+<pre><code class="language-kotlin">findViewById&lt;EditText&gt;(R.id.title).setOnKeyListener { v, keyCode, event -&gt;
+    if (keyCode == KeyEvent.KEYCODE_BACK &amp;&amp;
+            event.action == KeyEvent.ACTION_DOWN) {
+        Toast.makeText(this, "Press twice to go back", Toast.LENGTH_SHORT).show()
+        true
+    } else false
+}
+</code></pre>
+<p>Using the <em>Back</em> button when the application consists of a single activity is effectively the same as closing it completely. In this situation,  you can display a dialog box asking, "Are you sure you want to exit the app?". To implement this, you need to override the behavior of the <em>Back</em> button through the Activity's <code class="language-kotlin">onBackPressed()</code> function in the following way:</p>
+<pre><code class="language-kotlin">override fun onBackPressed() {
+    AlertDialog.Builder(this).apply {
+        setTitle("Confirmation")
+        setMessage("Are you sure you want to exit the app?")
+
+        setPositiveButton("Yes") { _, _ -&gt;
+            // if user press yes, then exit from app
+            super.onBackPressed()
+        }
+
+        setNegativeButton("No") { _, _ -&gt;
+            // if user press no, then return the activity
+            Toast.makeText(
+                this@ImageActivity, "Thank you",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }.show()
+}</code></pre>
+<p> <img alt="Confirmation request on backbutton pressed" height="503" src="https://ucarecdn.com/cd06bfa5-f807-4e90-bbb2-70f03fad4476/" width="283"/></p>
+<h5 id="other-event-listeners">Other event listeners</h5>
+<p>There are many more event listeners, and we will look at a couple of other examples in this section.</p>
+<p> The <code class="language-kotlin">OnFocusChangeListener</code> is called when the View gains or loses focus.</p>
+<p>Here's an example:</p>
+<pre><code class="language-kotlin">findViewById&lt;EditText&gt;(R.id.login).setOnFocusChangeListener { _, hasFocus -&gt;
+    Toast.makeText(this, "Enter a login", Toast.LENGTH_SHORT).show()
+}
+</code></pre>
+<p>This code displays a message indicating the <code class="language-kotlin">EditText</code> that includes the listener is intended for entering a login.</p>
+<p>Lastly, the <code class="language-kotlin">OnCreateContextMenuListener</code> is used to create a long-press context menu. In the example below, when you long-press on an element with text, a context menu that contains <em>Call</em> and <em>SMS</em> options is called up. To use it, you need to override the <code class="language-kotlin">OnCreateContextMenu</code> method that describes the created context menu and then catch its creation with the listener:</p>
+<p><img alt="Context menu appeared with two actions" height="251" src="https://ucarecdn.com/785a8193-8c7f-4e75-9ad3-45ee69a478bf/" width="339"/></p>
+<pre><code class="language-kotlin">class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val txtView: TextView = findViewById(R.id.title)
+        txtView.text = "202-555-0138"
+        txtView.setOnCreateContextMenuListener(this)
+    }
+ 
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenuInfo?
+    ) {
+        menu.setHeaderTitle("Select The Action")
+        menu.add("Call") 
+        menu.add("SMS")
+    }
+</code></pre>
+<h5 id="conclusion">Conclusion </h5>
+<p>Event listeners enable your applications to respond to UI events in the ways that you define. You have seen how they can be used to react to events such as clicks, button presses, and changes in focus. There is a wide range of event listeners, so you should be able to find one suitable for most purposes. Don't be shy about looking for those you require via autocomplete, the <a href="https://developer.android.com/guide/topics/ui/ui-events" rel="noopener noreferrer nofollow" target="_blank">official documentation</a>, or in the source code! </p>
+</div>

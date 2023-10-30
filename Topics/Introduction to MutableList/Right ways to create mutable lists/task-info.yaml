@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: "val list = MutableList(1, 2, 3)"
+  - text: "val list = mutableOf(1, 2, 3)"
+  - text: "val list = MutableList(3) { 0 }"
+  - text: "val list = mutableListOf(1, 2, 3)"
+files:
+  - name: src/main/Main.kt
+    visible: true
+    text: |+
+      // You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/14890#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Wed, 18 Oct 2023 16:52:26 UTC"
+record: -1
+selected_options:
+  - 3
+  - 2
+local_check: false

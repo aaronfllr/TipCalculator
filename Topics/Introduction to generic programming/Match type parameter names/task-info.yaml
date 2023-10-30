@@ -1,0 +1,32 @@
+type: matching
+captions:
+  - T
+  - S
+  - U
+  - V
+  - E
+  - "N"
+options:
+  - Third type
+  - Second type
+  - Value or fourth type
+  - Element
+  - First type
+  - Number
+files:
+  - name: src/main/Main.kt
+    visible: true
+    text: |+
+      // You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19666#comment
+status: Solved
+record: -1
+ordering:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5

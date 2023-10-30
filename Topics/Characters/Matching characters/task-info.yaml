@@ -1,0 +1,26 @@
+type: matching
+captions:
+  - '&#x27;\n&#x27;'
+  - '&#x27;\t&#x27;'
+  - '&#x27; &#x27;'
+  - '&#x27;\\&#x27;'
+options:
+  - space character
+  - tab character
+  - new line character
+  - backslash character itself
+files:
+  - name: src/main/Main.kt
+    visible: true
+    text: |+
+      // You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/4684#comment
+status: Solved
+record: -1
+ordering:
+  - 0
+  - 1
+  - 2
+  - 3

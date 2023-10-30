@@ -1,0 +1,23 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: <code>findViewById</code> of a <code>View</code> object will find you any
+      existing view
+  - text: "<code>findViewById</code> of a <code>Dialog</code> is scoped to this <code>Dialog</code>,\
+    \ unlike other versions"
+  - text: <code>findViewById</code> of an <code>Activity</code> object will find you
+      any existing view
+  - text: <code>findViewById</code> of any object can search only <em>inside</em> this
+      object
+files:
+  - name: src/main/Main.kt
+    visible: true
+    text: |+
+      // You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20351#comment
+status: Solved
+record: -1
+custom_name: Which views can you find?
+local_check: false

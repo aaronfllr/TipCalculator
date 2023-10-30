@@ -1,0 +1,14 @@
+<h2>Undefined type</h2>
+<div class="step-text">
+<p></p>
+<p>Look at the following code:</p>
+<pre><code class="language-kotlin">class Foo {
+    fun &lt;T&gt; T.foo(that: T): T = throw Exception()
+
+    init {
+        "str".foo(42)
+    }
+}</code></pre>
+<p>What type will T have?</p>
+<p><b>Tip:</b> There has got to be any type that encompasses both types that are used here.</p>
+</div>

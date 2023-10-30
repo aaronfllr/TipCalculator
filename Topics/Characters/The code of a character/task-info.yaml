@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: '''\n003F'''
+  - text: '''#003F'''
+  - text: '''\u003F'''
+  - text: '''003F'''
+  - text: '''\\003F'''
+files:
+  - name: src/main/Main.kt
+    visible: true
+    text: |+
+      // You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/4683#comment
+status: Solved
+record: -1
+local_check: false

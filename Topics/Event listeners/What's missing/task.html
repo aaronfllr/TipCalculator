@@ -1,0 +1,16 @@
+<h2>What's missing?</h2>
+<div class="step-text">
+<p></p>
+<p>Consider this code:</p>
+<pre><code class="language-kotlin">override fun onBackPressed() {
+    AlertDialog.Builder(this).apply {
+        setTitle("Exit")
+        setMessage("Are you sure you want to exit the app?")
+        setPositiveButton("Yes") { _, _ -&gt;
+            ...
+        }
+        setNegativeButton("No", null)
+    }.show()
+}</code></pre>
+<p>Write the missing line represented by <code class="language-kotlin">...</code> so that the default back action takes place when the "Yes" button is pressed.</p>
+</div>

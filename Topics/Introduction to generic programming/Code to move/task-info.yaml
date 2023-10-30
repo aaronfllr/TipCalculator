@@ -1,0 +1,16 @@
+type: code
+files:
+  - name: src/main/Main.kt
+    visible: true
+    highlight_level: NONE
+    text: "// implement primary constructor and methods\nclass Box<T> { \n    fun getBoxVolume()\n\
+    \    fun getFurnitureFromBox()\n}\n\n// Don't change classes below\nclass Fridge\n\
+    class Armchair"
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/14702#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 28 Oct 2023 22:29:08 UTC"
+record: -1
+submission_language: kotlin

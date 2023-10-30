@@ -1,0 +1,14 @@
+type: code
+files:
+  - name: src/main/Main.kt
+    visible: true
+    highlight_level: NONE
+    text: |-
+      class City(val name: String) {
+          var population: Int
+      }
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/7368#comment
+status: Unchecked
+record: -1
+submission_language: kotlin

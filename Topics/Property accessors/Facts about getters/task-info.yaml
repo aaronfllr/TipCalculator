@@ -1,0 +1,18 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: Getters give you better control over access to your variables
+  - text: Getters are immutable
+  - text: Getters are public by default
+  - text: Getters may return zero or one value
+files:
+  - name: src/main/Main.kt
+    visible: true
+    text: |+
+      // You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20635#comment
+status: Solved
+record: -1
+local_check: false

@@ -1,0 +1,14 @@
+type: code
+files:
+  - name: src/main/Main.kt
+    visible: true
+    highlight_level: NONE
+    text: // write the Pet class here
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10877#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Fri, 20 Oct 2023 19:33:29 UTC"
+record: -1
+submission_language: kotlin
